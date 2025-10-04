@@ -334,7 +334,7 @@ The RISC-V program is permanently hardcoded into the processor's instruction mem
 - Demonstrates embedded systems with baked-in firmware
 This core  represents a dedicated computing system where software is permanently fused into hardware.
 
-
+<br>
 
 ## The PLL: avsdpll.v
 
@@ -438,5 +438,8 @@ Where `Dext = {1'b0, D}` (unsigned 11-bit extended)
 </div>
 <br>
 
-
+- The signals of PLL are highlighted in `orange`, only the signal `CLK` is fed to the `rvmyth` core from the PLL.
+- The `10-bit` output from the `rvmyth` core is highlighted in `yellow`.
+- The input and output signals of DAC are highlighted in `green`
+- It can be observed that the DAC output is increasing from above image to the below image.
   

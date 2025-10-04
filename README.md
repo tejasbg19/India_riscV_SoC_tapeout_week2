@@ -268,8 +268,25 @@ $ gtkwave pre_synth_sim.vcd     # Open the waveform
 - `CLK`, `reset` - System clock and reset
 - `OUT[9:0]` - 10-bit output to DAC (from register r17)
 - `CPU_pc_a*` - Program counter at each pipeline stage
-- `CPU_Xreg_value_a5[17]` - Register r17 final value (DAC input)
-- Pipeline control: `valid_taken_br`, `valid_load`, `valid_jump`
+
+## #Pipeline Architecture
+
+**What is a Pipeline Stage?**
+- Each stage = one clock cycle of instruction processing
+- Like factory assembly line: each station does specific work
+- Instruction moves through stages one cycle at a time
+
+**5-Stage RISC-V Pipeline:**
+1. **Fetch** - Get instruction from memory
+2. **Decode** - Read registers, decode instruction  
+3. **Execute** - ALU operations, address calculation
+4. **Memory** - Load/store data access
+5. **Writeback** - Write results to registers
+
+**Why 5 Stages?**
+- Breaks work into balanced chunks
+- Improves throughput: one instruction completes per cycle
+- Enables parallel processing of multiple instructions
 
 **Waveform Analysis Points**:
 - Pipeline progression through stages

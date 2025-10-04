@@ -4,12 +4,15 @@
 - [1. Understanding System-on-Chip (SoC)](#-1-understanding-system-on-chip-soc)
     - [Key Components of a typical SoC](#%EF%B8%8F-key-components-of-a-typical-soc)
     - [Advantages of SoC](#-advantages-of-soc)
+    - [Applications](#-applications)
 - [2. Types of SoCs](#2-types-of-socs)
 - [3. Introduction to VSDBabySoC](#3-introduction-to-vsdbabysoc)
+    - [Core Components](#-core-components)
+    - [Internal Operation](#-internal-operation)
 - [4. Key Analog IPs in BabySoC](#4-key-analog-ips-in-babysoc)
   - [Phase-Locked Loop (PLL)](#phase-locked-loop-pll)
   - [Digital-to-Analog Converter (DAC)](#digital-to-analog-converter-dac)
-- [Why BabySoC Matters](#why-babysoc-matters)
+- [5. Why BabySoC Matters](#why-babysoc-matters)
 - [BabySoC Functional Modeling](#babysoc-functional-modeling)
 - [Analysis of Each Module & Waveform](#analysis-of-each-module--waveform)
   - [The RISC-V Core: rvmyth.v](#the-risc-v-core-rvmythv)
@@ -172,7 +175,7 @@ Used in smartphones, IoT devices, wearables, automotive systems, and embedded ap
 - In BabySoC, we use a **behavioral model** of a 10-bit DAC that mathematically converts the RVMYTH processor's digital output to analog voltages using Verilog's `real` data type, rather than modeling actual resistor networks.
 ---
 
-## 📘 6. Why BabySoC Matters  
+## 📘 5. Why BabySoC Matters  
 VSDBabySoC serves as an excellent educational and research platform because:  
 - It integrates **digital (RISC-V)** and **analog (PLL & DAC)** components.  
 - Provides a **complete SoC workflow** — from functional modelling to physical implementation.  

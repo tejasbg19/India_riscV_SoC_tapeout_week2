@@ -14,7 +14,7 @@
   - [Digital-to-Analog Converter (DAC)](#%EF%B8%8F-digital-to-analog-converter-dac)
 - [5. Why BabySoC Matters](#-5-why-babysoc-matters)
 - [BabySoC Functional Modeling](#task-2-babysoc-functional-modeling)
-      - [Steps Involved in Functional Modeling of the BabySoc](#steps-involved-in-functional-modeling-of-the-babysoc)
+    - [Steps Involved in Functional Modeling of the BabySoc](#steps-involved-in-functional-modeling-of-the-babysoc)
 - [Analysis of Each Module & Waveform](#analysis-of-each-module--waveform)
   - [The RISC-V Core: rvmyth.v](#the-risc-v-core-rvmythv)
   - [The PLL: avsdpll.v](#the-pll-avsdpllv)

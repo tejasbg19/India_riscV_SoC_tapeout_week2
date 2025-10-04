@@ -118,7 +118,7 @@ Used in smartphones, IoT devices, wearables, automotive systems, and embedded ap
 ### 🕒 Phase-Locked Loop (PLL)
 
 <div align="center">
-  <img src="./Images/BASIC-DIAGRAM-OF-PHASE-LOCKED-LOOP.png" alt="BASIC-DIAGRAM-OF-PHASE-LOCKED-LOOP.png" width="800" />
+  <img src="./Images/pll_new.png" alt="pll_new.png" width="600" />
   <p><b>Basic block diagram of a PLL</b></p>
 </div>
 <br>
@@ -139,7 +139,7 @@ Used in smartphones, IoT devices, wearables, automotive systems, and embedded ap
 ### 🎚️ Digital-to-Analog Converter (DAC)
 
 <div align="center">
-  <img src="./Images/r2r-dac.png" alt="r2r-dac.png" width="800" />
+  <img src="./Images/r2r-dac.png" alt="r2r-dac.png" width="600" />
   <p><b>An R2R Ladder DAC</b></p>
 </div>
 <br>

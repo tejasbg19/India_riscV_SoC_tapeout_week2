@@ -269,7 +269,7 @@ $ gtkwave pre_synth_sim.vcd     # Open the waveform
 - `OUT[9:0]` - 10-bit output to DAC (from register r17)
 - `CPU_pc_a*` - Program counter at each pipeline stage
 
-## #Pipeline Architecture
+### Pipeline Architecture
 
 **What is a Pipeline Stage?**
 - Each stage = one clock cycle of instruction processing
@@ -288,11 +288,6 @@ $ gtkwave pre_synth_sim.vcd     # Open the waveform
 - Improves throughput: one instruction completes per cycle
 - Enables parallel processing of multiple instructions
 
-**Waveform Analysis Points**:
-- Pipeline progression through stages
-- Register r17 value changes during computation
-- Branch instruction execution and PC updates
-- Final output stabilization to DAC
 
 ## The PLL: avsdpll.v
 
@@ -315,10 +310,7 @@ $ gtkwave pre_synth_sim.vcd     # Open the waveform
 - Self-triggering oscillator with dynamic period adjustment
 - Models PLL locking behavior without analog components
 
-**Waveform Analysis Points**:
-- REF to CLK frequency relationship (8:1 ratio)
-- PLL locking behavior over time
-- Clock enable/disable transitions
+
 
 ## The DAC: avsddac.v
 
@@ -342,10 +334,6 @@ OUT <= VREFL + ($itor(Dext) / 1023.0) * (VREFH - VREFL)
 
 Where `Dext = {1'b0, D}` (unsigned 11-bit extended)
 
-**Waveform Analysis Points**:
-- Digital input (D) to analog output (OUT) mapping
-- Voltage range verification (0V to 3.3V)
-- Step response to CPU output changes
 
 ## The SoC Integration: vsdbabysoc.v
 
@@ -360,10 +348,5 @@ Where `Dext = {1'b0, D}` (unsigned 11-bit extended)
 - DAC produces final analog output
 - Control signals (reset, enables) propagate through hierarchy
 
-**Waveform Analysis Points**:
-- End-to-end signal propagation
-- Clock domain synchronization
-- Digital-to-analog conversion chain
-- System-level timing relationships
 
   

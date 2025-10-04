@@ -20,7 +20,7 @@
 
 
 
-## 1. 🧩 1. Understanding System-on-Chip (SoC)
+## 1. 🧩Understanding System-on-Chip (SoC)
 
 A **System-on-Chip (SoC)** is essentially a miniature computer built onto a single silicon chip.  
 It integrates all the key components required for computation, communication, and control — making it compact, efficient, and highly power-optimized.
@@ -86,7 +86,7 @@ Used in smartphones, IoT devices, wearables, automotive systems, and embedded ap
 
 ---
 
-## 🧱 2. Types of SoCs
+## 2. 🧱Types of SoCs
 1. **Microcontroller-based SoC:**  
    Designed for simple, low-power control applications like home appliances or IoT systems.  
 

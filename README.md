@@ -149,7 +149,8 @@ VSDBabySoC serves as an excellent educational and research platform because:
 - It integrates **digital (RISC-V)** and **analog (PLL & DAC)** components.  
 - Provides a **complete SoC workflow** — from functional modelling to physical implementation.  
 - Encourages learning open-source EDA tools and Sky130 technology.  
-- Builds a foundation for **digital-analog interfacing and RISC-V system design**.  
+- Builds a foundation for **digital-analog interfacing and RISC-V system design**.
+- Easier to analyse as there are less number of IPs, very student friendly.
 
 To Know more about Baby SoC [click here](https://github.com/manili/VSDBabySoC)
 

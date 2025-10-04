@@ -2,7 +2,7 @@
 
 ## Table of Contents
 - [1. Understanding System-on-Chip (SoC)](#-1-understanding-system-on-chip-soc)
-    - [Key Components of a typical SoC](#%EF%B8%8F-11-key-components-of-a-typical-soc)
+    - [Key Components of a typical SoC](#%EF%B8%8F-key-components-of-a-typical-soc)
     - [Advantages of SoC](#-advantages-of-soc)
 - [2. Types of SoCs](#2-types-of-socs)
 - [3. Introduction to VSDBabySoC](#3-introduction-to-vsdbabysoc)

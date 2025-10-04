@@ -441,5 +441,23 @@ Where `Dext = {1'b0, D}` (unsigned 11-bit extended)
 - The signals of PLL are highlighted in `orange`, only the signal `CLK` is fed to the `rvmyth` core from the PLL.
 - The `10-bit` output from the `rvmyth` core is highlighted in `yellow`.
 - The input and output signals of DAC are highlighted in `green`
-- It can be observed that the DAC output is increasing from above image to the below image.
-  
+- It can be observed that the DAC output is increasing and decreasing towards the end of simulation directly proportional to `rvmyth`'s input to DAC.
+  <div align="center">
+  <img src="./Images/17_soc_gtk.png" alt="17_soc_gtk.png" width="1000" />
+  <p><b>Signal between Each Modules of the SoC</b></p>
+</div>
+<br>
+
+<br><br>
+
+
+## Acknowledgments
+- RISC‑V Reference SoC Tapeout Program Organizers:
+    - Kunal Gosh Sir
+    - VLSI System Design (VSD) team
+    - Indian Institute of Technology Gandhinagar (IITGN)
+    - Semiconductor Laboratory (SCL)
+    - Redwood EDA
+    - Steve Hoover Sir
+  <!--     - Synopsys Inc. -->
+

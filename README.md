@@ -21,7 +21,14 @@ This setup is **modular and repairable**, meaning any faulty part (like RAM or s
 However, it also **occupies more space** and **consumes more power**, since all components are placed on a large PCB and connected through external buses.
 
 In contrast, an **SoC** (like Apple’s *M-series chips*) integrates all these components — the **CPU core, memory, clocking circuits, I/O interfaces, and peripherals** — onto a **single silicon wafer**.  
-This drastically **reduces area and power consumption**, making SoCs ideal for **portable and low-power devices** such as smartphones, tablets, and wearables.  
+This drastically **reduces area and power consumption**, making SoCs ideal for **portable and low-power devices** such as smartphones, tablets, and wearables. 
+
+<div align="center">
+  <img src="./Images/Apple_m1-chip-8-core-cpu-chart_11102020_big.jpg.large.jpg" alt="Apple_m1-chip-8-core-cpu-chart_11102020_big.jpg.large.jpg" width="1000" />
+  <p><b>Apple's M1 SoC Chip</b></p>
+</div>
+
+<br>
 
 The trade-off, however, is **repairability** — since everything is fabricated together, replacing or upgrading a single component isn’t possible.  
 

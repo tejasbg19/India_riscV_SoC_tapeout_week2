@@ -122,11 +122,5 @@ VSDBabySoC serves as an excellent educational and research platform because:
 - Encourages learning open-source EDA tools and Sky130 technology.  
 - Builds a foundation for **digital-analog interfacing and RISC-V system design**.  
 
----
-
-- BabySoC architecture  
-- Role of functional modelling in design verification  
-
-All results, simulations, and notes should be documented clearly on GitHub under **Week-02: BabySoC Fundamentals & Functional Modelling**.  
-
+To Know more about Baby SoC [click here](https://github.com/manili/VSDBabySoC)
 ---

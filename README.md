@@ -123,4 +123,5 @@ VSDBabySoC serves as an excellent educational and research platform because:
 - Builds a foundation for **digital-analog interfacing and RISC-V system design**.  
 
 To Know more about Baby SoC [click here](https://github.com/manili/VSDBabySoC)
+
 ---

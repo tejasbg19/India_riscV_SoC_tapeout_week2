@@ -9,6 +9,14 @@ It integrates all the key components required for computation, communication, an
 For example, in a **traditional computer**, we have a **central CPU core** (from Intel or AMD) mounted on a **motherboard**.  
 The motherboard houses all the necessary circuitry and components required for the CPU to function properly — such as timers, counters, interrupt controllers, RAM, code memory, HDD interface, clock generators, frequency dividers, I/O controllers, peripheral interfaces, and various protocol handlers.  
 
+
+<div align="center">
+  <img src="./Images/Screenshot-from-2022-02-10-17-51-14.png" alt="Screenshot-from-2022-02-10-17-51-14.png" width="1000" />
+  <p><b>Different Components of a typical Mother Board</b></p>
+</div>
+
+<br>
+
 This setup is **modular and repairable**, meaning any faulty part (like RAM or storage) can be replaced independently.  
 However, it also **occupies more space** and **consumes more power**, since all components are placed on a large PCB and connected through external buses.
 
@@ -68,6 +76,13 @@ Used in smartphones, IoT devices, wearables, automotive systems, and embedded ap
 
 **VSDBabySoC** is a simplified yet powerful RISC-V based SoC, created for educational and open-source experimentation.  
 
+<div align="center">
+  <img src="./Images/vsdbabysoc_block_diagram.png" alt="vsdbabysoc_block_diagram.png" width="800" />
+  <p><b>VSD Baby SoC Block Diagram</b></p>
+</div>
+<br>
+
+
 ### 🧠 Core Components  
 - **RVMYTH Processor (RISC-V CPU):**  
   The main processing unit that handles instruction execution. Learn more about RVMYTH [here](https://github.com/kunalg123/rvmyth)
@@ -94,6 +109,13 @@ Used in smartphones, IoT devices, wearables, automotive systems, and embedded ap
 ## 🪄 4. Key Analog IPs in BabySoC  
 
 ### 🕒 Phase-Locked Loop (PLL)
+
+<div align="center">
+  <img src="./Images/BASIC-DIAGRAM-OF-PHASE-LOCKED-LOOP.png" alt="BASIC-DIAGRAM-OF-PHASE-LOCKED-LOOP.png" width="800" />
+  <p><b>Basic block diagram of a PLL</b></p>
+</div>
+<br>
+
 - Maintains phase and frequency alignment with a reference clock.  
 - Consists of:  
   - **Phase Detector**  
@@ -107,6 +129,13 @@ Used in smartphones, IoT devices, wearables, automotive systems, and embedded ap
 - Maintains timing accuracy despite environmental variations.  
 
 ### 🎚️ Digital-to-Analog Converter (DAC)
+
+<div align="center">
+  <img src="./Images/r2r-dac.png" alt="r2r-dac.png" width="800" />
+  <p><b>An R2R Ladder DAC</b></p>
+</div>
+<br>
+
 - Converts digital binary values into continuous analog voltages.  
 - Two major types:  
   1. **Weighted Resistor DAC**  

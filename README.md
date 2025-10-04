@@ -127,7 +127,8 @@ Used in smartphones, IoT devices, wearables, automotive systems, and embedded ap
 - Consists of:  
   - **Phase Detector**  
   - **Loop Filter**  
-  - **Voltage-Controlled Oscillator (VCO)**  
+  - **Voltage-Controlled Oscillator (VCO)**
+  - **Frequency Divider**
 - Ensures synchronized operation across digital and analog modules.  
 
 **Why internal PLL is preferred over off-chip clocks:**  
@@ -143,12 +144,11 @@ Used in smartphones, IoT devices, wearables, automotive systems, and embedded ap
 </div>
 <br>
 
-- Converts digital binary values into continuous analog voltages.  
-- Two major types:  
-  1. **Weighted Resistor DAC**  
+- Converts digital binary values into continuous analog voltages
+- Two major hardware implementations:
+  1. **Weighted Resistor DAC**
   2. **R-2R Ladder DAC**  
-- In BabySoC, a **10-bit DAC** produces precise analog output corresponding to the RVMYTH processor’s digital output stream.  
-
+- In BabySoC, we use a **behavioral model** of a 10-bit DAC that mathematically converts the RVMYTH processor's digital output to analog voltages using Verilog's `real` data type, rather than modeling actual resistor networks.
 ---
 
 ## 📘 6. Why BabySoC Matters  
@@ -162,3 +162,8 @@ VSDBabySoC serves as an excellent educational and research platform because:
 To Know more about Baby SoC [click here](https://github.com/manili/VSDBabySoC)
 
 ---
+
+# Task-2 : BabySoC Functional Modeling
+
+
+

@@ -254,7 +254,7 @@ $ gtkwave pre_synth_sim.vcd     # Open the waveform
 
 ## Analysis of Each Module & Waveform
 
-## The RISC-V Core: rvmyth.v
+### The RISC-V Core: rvmyth.v
 
 **Module Purpose**: 5-stage pipelined RISC-V CPU core that executes the arithmetic program and outputs results to DAC.
 
@@ -269,7 +269,7 @@ $ gtkwave pre_synth_sim.vcd     # Open the waveform
 - `OUT[9:0]` - 10-bit output to DAC (from register r17)
 - `CPU_pc_a*` - Program counter at each pipeline stage
 
-### Pipeline Architecture
+#### Pipeline Architecture
 
 **What is a Pipeline Stage?**
 - Each stage = one clock cycle of instruction processing
@@ -288,7 +288,7 @@ $ gtkwave pre_synth_sim.vcd     # Open the waveform
 - Improves throughput: one instruction completes per cycle
 - Enables parallel processing of multiple instructions
 
-### Instruction Decoding
+#### Instruction Decoding
 The CPU decodes RISC-V instructions using opcode patterns defined in the Verilog:
 
 ```verilog
@@ -324,7 +324,7 @@ In waveform, `CPU_opcode_a1` shows these values as instructions progress through
 
 
 
-### Hardcoded Program Implementation
+#### Hardcoded Program Implementation
 
 The RISC-V program is permanently hardcoded into the processor's instruction memory (rvmyth.v). This creates a fixed-function ASIC that:
 
@@ -336,7 +336,7 @@ This core  represents a dedicated computing system where software is permanently
 
 <br>
 
-## The PLL: avsdpll.v
+### The PLL: avsdpll.v
 
 **Module Purpose**: Behavioral Phase-Locked Loop that generates system clock from reference input.
 
@@ -375,7 +375,7 @@ This core  represents a dedicated computing system where software is permanently
 
 
 
-## The DAC: avsddac.v
+### The DAC: avsddac.v
 
 **Module Purpose**: 10-bit Digital-to-Analog Converter behavioral model.
 
@@ -419,7 +419,7 @@ Where `Dext = {1'b0, D}` (unsigned 11-bit extended)
 
 
 
-## The SoC Integration: vsdbabysoc.v
+### The SoC Integration: vsdbabysoc.v
 
 **Module Purpose**: Top-level System-on-Chip that integrates all components.
 
@@ -451,7 +451,7 @@ Where `Dext = {1'b0, D}` (unsigned 11-bit extended)
 <br><br>
 
 
-## Acknowledgments
+### Acknowledgments
 - RISC‑V Reference SoC Tapeout Program Organizers:
     - Kunal Gosh Sir
     - VLSI System Design (VSD) team

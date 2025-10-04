@@ -1,5 +1,24 @@
 # Task-1 : BabySoC Fundamentals
 
+## Table of Contents
+- [1. Understanding System-on-Chip (SoC)](#1-understanding-system-on-chip-soc)
+- [2. Types of SoCs](#2-types-of-socs)
+- [3. Introduction to VSDBabySoC](#3-introduction-to-vsdbabysoc)
+- [4. Key Analog IPs in BabySoC](#4-key-analog-ips-in-babysoc)
+  - [Phase-Locked Loop (PLL)](#phase-locked-loop-pll)
+  - [Digital-to-Analog Converter (DAC)](#digital-to-analog-converter-dac)
+- [Why BabySoC Matters](#why-babysoc-matters)
+- [BabySoC Functional Modeling](#babysoc-functional-modeling)
+- [Analysis of Each Module & Waveform](#analysis-of-each-module--waveform)
+  - [The RISC-V Core: rvmyth.v](#the-risc-v-core-rvmythv)
+  - [The PLL: avsdpll.v](#the-pll-avsdpllv)
+  - [The DAC: avsddac.v](#the-dac-avsddacv)
+  - [The SoC Integration: vsdbabysoc.v](#the-soc-integration-vsdbabysocv)
+
+
+
+
+
 
 ## 🧩 1. Understanding System-on-Chip (SoC)
 
@@ -323,3 +342,5 @@ Where `Dext = {1'b0, D}` (unsigned 11-bit extended)
 - Clock domain synchronization
 - Digital-to-analog conversion chain
 - System-level timing relationships
+
+  

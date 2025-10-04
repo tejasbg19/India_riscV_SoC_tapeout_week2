@@ -288,6 +288,25 @@ $ gtkwave pre_synth_sim.vcd     # Open the waveform
 - Improves throughput: one instruction completes per cycle
 - Enables parallel processing of multiple instructions
 
+### Instruction Decoding
+The CPU decodes RISC-V instructions using opcode patterns defined in the Verilog:
+
+```verilog
+// Example opcode definitions from rvmyth.v:
+assign CPU_is_add_a1 = CPU_dec_bits_a1 == 11'b0_000_0110011;     // R-type (opcode 0x33)
+assign CPU_is_addi_a1 = CPU_dec_bits_a1[9:0] == 10'b000_0010011; // I-type (opcode 0x13)  
+assign CPU_is_beq_a1 = CPU_dec_bits_a1[9:0] == 10'b000_1100011;  // B-type (opcode 0x63)
+```
+**Opcode Mapping**:
+- `0x33` (51) = R-type instructions (ADD, SUB, AND, OR)
+- `0x13` (19) = I-type instructions (ADDI, ANDI, ORI) 
+- `0x63` (99) = B-type instructions (BEQ, BNE, BLT)
+
+In waveform, `CPU_opcode_a1` shows these values as instructions progress through pipeline.
+
+[Imahe hakbeku !!](image-haktini.com)
+
+
 
 ## The PLL: avsdpll.v
 

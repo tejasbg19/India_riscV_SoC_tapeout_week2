@@ -304,7 +304,35 @@ assign CPU_is_beq_a1 = CPU_dec_bits_a1[9:0] == 10'b000_1100011;  // B-type (opco
 
 In waveform, `CPU_opcode_a1` shows these values as instructions progress through pipeline.
 
-[Imahe hakbeku !!](image-haktini.com)   In rvmyth.v - the program is hardcoded! This BabySoC implements a fixed-function processor that continuously executes its hardcoded arithmetic program, demonstrating embedded system principles where software is permanently baked into hardware.
+<div align="center">
+  <img src="./Images/11_opc0des_v.png" alt="11_opc0des_v.png" width="1000" />
+  <p><b>OPCODES Defined inside the Verilog code of rvmyth</b></p>
+</div>
+<br>
+
+<div align="center">
+  <img src="./Images/12_opcodes_orange_gtk.png" alt="12_opcodes_orange_gtk.png" width="1000" />
+  <p><b>Recurring OPCODES Highlighted in waveform</b></p>
+</div>
+<br>
+
+<div align="center">
+  <img src="./Images/15_core_gtk.png" alt="15_core_gtk.png" width="1000" />
+  <p><b>The inputs scr1 & scr2 to the ALU</b></p>
+</div>
+<br>
+
+
+
+### Hardcoded Program Implementation
+
+The RISC-V program is permanently hardcoded into the processor's instruction memory (rvmyth.v). This creates a fixed-function ASIC that:
+
+- Executes the same arithmetic program continuously on power-up
+- Outputs computation results to DAC in an infinite loop
+- Cannot be reprogrammed without hardware redesign
+- Demonstrates embedded systems with baked-in firmware
+This core  represents a dedicated computing system where software is permanently fused into hardware.
 
 
 
@@ -326,8 +354,24 @@ In waveform, `CPU_opcode_a1` shows these values as instructions progress through
 **Operation**:
 - Measures REF period using `$realtime`
 - Calculates CLK period: `period = refpd / 8.0`
-- Self-triggering oscillator with dynamic period adjustment
 - Models PLL locking behavior without analog components
+
+<div align="center">
+  <img src="./Images/14_pll_gtk_tell_refpd_div_8.png" alt="14_pll_gtk_tell_refpd_div_8.png" width="1000" />
+  <p><b>Different Signals within the PLL Highlighted</b></p>
+</div>
+<br>
+
+- The reference clock signal `REF` is highlighted in `orange` colour, as per the `testbench` the signal has a frequency of `5 MHz`.
+- The Final output of this IP is the signal `CLK` which is the first signal in the above waveform, this is the clock fed to teh core, its frequency is `40 MHz`. Hence we can say the PLL multiplies the input reference frequency `REF` by 8 to generate the output signal. 
+
+<div align="center">
+  <img src="./Images/14_pll_tellgtk.png" alt="14_pll_tellgtk.png" width="1000" />
+  <p><b>The Period says the same throughout the simulation mimicing teh behaviour of an Ideal Clk generator</b></p>
+</div>
+<br>
+
+
 
 
 
@@ -354,6 +398,27 @@ OUT <= VREFL + ($itor(Dext) / 1023.0) * (VREFH - VREFL)
 Where `Dext = {1'b0, D}` (unsigned 11-bit extended)
 
 
+<div align="center">
+  <img src="./Images/13a_dac_gtk.png" alt="13a_dac_gtk.png" width="1000" />
+  <p><b>Various Signal of DAC Highlighted</b></p>
+</div>
+<br>
+
+- The 10 bit `OUT[9:0]` signal highlighted in `orange` is the final ouput of `rvmyth` core.
+- The `1-bit` `OUT` signal highlighted in `yellow` is the final analog output of the DAC, here modelled as a real value mapped using the formula mentioned before.
+- The DAC uses Verilog's `$itor()` function for integer-to-real conversion and Converts 10-bit digital input (0-1023) to floating-point values (analog voltages)
+- It can be observed that the `Real` value of `OUT` varying as the `integer` value of `D[9:0]` varries.
+- Throught the simulation the Enable signal `EN` is kept `high`/`1`.
+- Also here the reference low voltage `VREFL`= `0` V & reference high voltage `VREFH`= `1` V
+
+<div align="center">
+  <img src="./Images/13_dac_gtk.png" alt="13_dac_gtk.png" width="1000" />
+  <p><b>Varying Analog Values as the input from rvmyth varries</b></p>
+</div>
+<br>
+
+
+
 ## The SoC Integration: vsdbabysoc.v
 
 **Module Purpose**: Top-level System-on-Chip that integrates all components.
@@ -366,6 +431,12 @@ Where `Dext = {1'b0, D}` (unsigned 11-bit extended)
 - CPU digital output feeds DAC input  
 - DAC produces final analog output
 - Control signals (reset, enables) propagate through hierarchy
+
+<div align="center">
+  <img src="./Images/16_soc_gtk.png" alt="16_soc_gtk.png" width="1000" />
+  <p><b>Signal between Each Modules of the SoC</b></p>
+</div>
+<br>
 
 
   

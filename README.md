@@ -304,7 +304,7 @@ assign CPU_is_beq_a1 = CPU_dec_bits_a1[9:0] == 10'b000_1100011;  // B-type (opco
 
 In waveform, `CPU_opcode_a1` shows these values as instructions progress through pipeline.
 
-[Imahe hakbeku !!](image-haktini.com)
+[Imahe hakbeku !!](image-haktini.com)   In rvmyth.v - the program is hardcoded!
 
 
 

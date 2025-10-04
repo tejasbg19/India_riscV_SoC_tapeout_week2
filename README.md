@@ -2,6 +2,7 @@
 
 ## Table of Contents
 - [1. Understanding System-on-Chip (SoC)](#1-understanding-system-on-chip-soc)
+    - [1.1 Key Components of a typical SoC](#1.1-key-components-of-a-typical-soc)
 - [2. Types of SoCs](#2-types-of-socs)
 - [3. Introduction to VSDBabySoC](#3-introduction-to-vsdbabysoc)
 - [4. Key Analog IPs in BabySoC](#4-key-analog-ips-in-babysoc)
@@ -52,7 +53,7 @@ This drastically **reduces area and power consumption**, making SoCs ideal for *
 The trade-off, however, is **repairability** — since everything is fabricated together, replacing or upgrading a single component isn’t possible.  
 
 
-### ✳️ Key Components of a typical SoC
+### 1.1 ✳️ Key Components of a typical SoC
 - **CPU (Central Processing Unit):**  
   Acts as the brain of the system, executing instructions and managing all operations.  
 

@@ -367,7 +367,7 @@ This core  represents a dedicated computing system where software is permanently
 
 <div align="center">
   <img src="./Images/14_pll_tellgtk.png" alt="14_pll_tellgtk.png" width="1000" />
-  <p><b>The Period says the same throughout the simulation mimicing teh behaviour of an Ideal Clk generator</b></p>
+  <p><b>The Period says the same throughout the simulation mimicking the behaviour of an Ideal Clock generator</b></p>
 </div>
 <br>
 
@@ -407,8 +407,8 @@ Where `Dext = {1'b0, D}` (unsigned 11-bit extended)
 - The 10 bit `OUT[9:0]` signal highlighted in `orange` is the final ouput of `rvmyth` core.
 - The `1-bit` `OUT` signal highlighted in `yellow` is the final analog output of the DAC, here modelled as a real value mapped using the formula mentioned before.
 - The DAC uses Verilog's `$itor()` function for integer-to-real conversion and Converts 10-bit digital input (0-1023) to floating-point values (analog voltages)
-- It can be observed that the `Real` value of `OUT` varying as the `integer` value of `D[9:0]` varries.
-- Throught the simulation the Enable signal `EN` is kept `high`/`1`.
+- It can be observed that the `Real` value of `OUT` varying as the `integer` value of `D[9:0]` varies.
+- Throughout the simulation the Enable signal `EN` is kept `high`/`1`.
 - Also here the reference low voltage `VREFL`= `0` V & reference high voltage `VREFH`= `1` V
 
 <div align="center">

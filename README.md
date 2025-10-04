@@ -163,7 +163,163 @@ To Know more about Baby SoC [click here](https://github.com/manili/VSDBabySoC)
 
 ---
 
-# Task-2 : BabySoC Functional Modeling
+# Task-2: BabySoC Functional Modeling
+
+## Steps Involved:
+To simulate BabySoC, follow these steps:
+
+1. **Clone the repository**: Use `git clone https://github.com/manili/VSDBabySoC` - contains all required Verilog & testbench files
+2. **Install tools**: Icarus Verilog & GTKWave ([guide here](https://github.com/tejasbg19/India_riscV_SoC_tapeout) if not installed)
+3. **Setup Python environment**: Install pip and Python virtual environment
+4. **Install SandPiper**: For TL-Verilog to Verilog conversion (rvmyth.tlv → rvmyth.v)
+5. **Compile & simulate**: Use Icarus Verilog to compile and run the testbench
+6. **Analyze results**: View and analyze waveforms using GTKWave
+
+```bash
+$ git clone --recurse-submodules https://github.com/manili/VSDBabySoC
+$ sudo apt install python3-pip
+$ sudo apt install python3-venv python3-pip
+$ cd VSDBabySoC
+$ python3 -m venv Tejas    #create virtual environment
+$ source Tejas/bin/activate   #activate the environment
+$ sandpiper-saas -i ./src/module/*.tlv -o rvmyth.v --bestsv --noline -p verilog --outdir ./src/module/     # Convert Traction Level Verilog file of rvmyth core into Verilog
+$ iverilog -DPRE_SYNTH_SIM -I src/include -I src/module src/module/testbench.v     # Compile all the necessary verilog files
+$ ./a.out # or vvp a.out   # Simulate the test bench
+$ gtkwave pre_synth_sim.vcd     # Open the waveform
+```
 
 
+<div align="center">
+  <img src="./Images/1git_clone.png" alt="1git_clone.png" width="600" />
+  <p><b>Cloning the Repository</b></p>
+</div>
+<br>
 
+<div align="center">
+  <img src="./Images/3pip_install.png" alt="3pip_install.png" width="600" />
+  <p><b>Installing pip3</b></p>
+</div>
+<br>
+
+<div align="center">
+  <img src="./Images/4env_install.png" alt="4env_install.png" width="600" />
+  <p><b>Installing py virtual environment</b></p>
+</div>
+<br>
+
+<div align="center">
+  <img src="./Images/5convertTLV2V.png" alt="5convertTLV2V.png" width="600" />
+  <p><b>Converting TLV file into Verilog file using sandpiper compiler</b></p>
+</div>
+<br>
+
+<div align="center">
+  <img src="./Images/6show_v.png" alt="6show_v.png" width="600" />
+  <p><b>Thus Generated Verilog file</b></p>
+</div>
+<br>
+
+<div align="center">
+  <img src="./Images/7comp_gtk.png" alt="7comp_gtk.png" width="1000" />
+  <p><b>Compilation, Simulation & opening the waveform</b></p>
+</div>
+<br>
+
+---
+
+## Analysis of Each Module & Waveform
+
+## The RISC-V Core: rvmyth.v
+
+**Module Purpose**: 5-stage pipelined RISC-V CPU core that executes the arithmetic program and outputs results to DAC.
+
+**Key Features**:
+- **5-stage pipeline**: Fetch (@0-1), Decode (@1-2), Execute (@3), Memory (@4), Writeback (@5)
+- **RV32I Instruction Set**: Supports arithmetic, branch, load/store, and jump instructions
+- **Register File**: 32 registers with write-back forwarding
+- **Program Memory**: Hardcoded instruction sequence for arithmetic operations
+
+**Critical Signals**:
+- `CLK`, `reset` - System clock and reset
+- `OUT[9:0]` - 10-bit output to DAC (from register r17)
+- `CPU_pc_a*` - Program counter at each pipeline stage
+- `CPU_Xreg_value_a5[17]` - Register r17 final value (DAC input)
+- Pipeline control: `valid_taken_br`, `valid_load`, `valid_jump`
+
+**Waveform Analysis Points**:
+- Pipeline progression through stages
+- Register r17 value changes during computation
+- Branch instruction execution and PC updates
+- Final output stabilization to DAC
+
+## The PLL: avsdpll.v
+
+**Module Purpose**: Behavioral Phase-Locked Loop that generates system clock from reference input.
+
+**Key Features**:
+- **Frequency Multiplication**: 8× multiplication (5MHz REF → 40MHz CLK)
+- **Behavioral Model**: Uses real-number timing for simulation
+- **Clock Gating**: `ENb_VCO` enables/disables clock generation
+
+**Critical Signals**:
+- `REF` - Reference clock input (5MHz in testbench)
+- `CLK` - Generated system clock output (40MHz)
+- `ENb_VCO` - VCO enable (active low)
+- `VCO_IN`, `ENb_CP` - Unused in behavioral model
+
+**Operation**:
+- Measures REF period using `$realtime`
+- Calculates CLK period: `period = refpd / 8.0`
+- Self-triggering oscillator with dynamic period adjustment
+- Models PLL locking behavior without analog components
+
+**Waveform Analysis Points**:
+- REF to CLK frequency relationship (8:1 ratio)
+- PLL locking behavior over time
+- Clock enable/disable transitions
+
+## The DAC: avsddac.v
+
+**Module Purpose**: 10-bit Digital-to-Analog Converter behavioral model.
+
+**Key Features**:
+- **10-bit Resolution**: Converts 0-1023 digital values to analog voltage
+- **Behavioral Modeling**: Uses Verilog `real` data type for analog simulation
+- **Voltage Range**: Maps to VREFL-VREFH (0V-3.3V in testbench)
+
+**Critical Signals**:
+- `D[9:0]` - 10-bit digital input from RISC-V core
+- `OUT` - Analog voltage output (real number)
+- `VREFH`, `VREFL` - Reference voltages (3.3V, 0V)
+- `EN` - Always enabled in current implementation
+
+**Conversion Formula**:
+```verilog
+OUT <= VREFL + ($itor(Dext) / 1023.0) * (VREFH - VREFL)
+```
+
+Where `Dext = {1'b0, D}` (unsigned 11-bit extended)
+
+**Waveform Analysis Points**:
+- Digital input (D) to analog output (OUT) mapping
+- Voltage range verification (0V to 3.3V)
+- Step response to CPU output changes
+
+## The SoC Integration: vsdbabysoc.v
+
+**Module Purpose**: Top-level System-on-Chip that integrates all components.
+
+**Signal Flow**:
+`REF → PLL → CLK → RISC-V CPU → RV_TO_DAC[9:0] → DAC → OUT`
+
+**Inter-module Connections**:
+- PLL provides synchronized clock to CPU
+- CPU digital output feeds DAC input  
+- DAC produces final analog output
+- Control signals (reset, enables) propagate through hierarchy
+
+**Waveform Analysis Points**:
+- End-to-end signal propagation
+- Clock domain synchronization
+- Digital-to-analog conversion chain
+- System-level timing relationships

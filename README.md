@@ -9,11 +9,12 @@
 - [3. Introduction to VSDBabySoC](#3-introduction-to-vsdbabysoc)
     - [Core Components](#-core-components)
     - [Internal Operation](#-internal-operation)
-- [4. Key Analog IPs in BabySoC](#4-key-analog-ips-in-babysoc)
-  - [Phase-Locked Loop (PLL)](#phase-locked-loop-pll)
-  - [Digital-to-Analog Converter (DAC)](#digital-to-analog-converter-dac)
-- [5. Why BabySoC Matters](#why-babysoc-matters)
-- [BabySoC Functional Modeling](#babysoc-functional-modeling)
+- [4. Key Analog IPs in BabySoC](#-4-key-analog-ips-in-babysoc)
+  - [Phase-Locked Loop (PLL)](#-phase-locked-loop-pll)
+  - [Digital-to-Analog Converter (DAC)](#%EF%B8%8F-digital-to-analog-converter-dac)
+- [5. Why BabySoC Matters](#-5-why-babysoc-matters)
+- [BabySoC Functional Modeling](#task-2-babysoc-functional-modeling)
+    -[Steps Involved in Functional Modeling of the BabySoc](#steps-involved)
 - [Analysis of Each Module & Waveform](#analysis-of-each-module--waveform)
   - [The RISC-V Core: rvmyth.v](#the-risc-v-core-rvmythv)
   - [The PLL: avsdpll.v](#the-pll-avsdpllv)
@@ -189,7 +190,7 @@ To Know more about Baby SoC [click here](https://github.com/manili/VSDBabySoC)
 
 # Task-2: BabySoC Functional Modeling
 
-## Steps Involved:
+## Steps Involved in Functional Modeling of the BabySoc:
 To simulate BabySoC, follow these steps:
 
 1. **Clone the repository**: Use `git clone https://github.com/manili/VSDBabySoC` - contains all required Verilog & testbench files

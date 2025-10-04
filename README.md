@@ -33,7 +33,7 @@ This drastically **reduces area and power consumption**, making SoCs ideal for *
 The trade-off, however, is **repairability** — since everything is fabricated together, replacing or upgrading a single component isn’t possible.  
 
 
-### ✳️ Key Components of an SoC
+### ✳️ Key Components of a typical SoC
 - **CPU (Central Processing Unit):**  
   Acts as the brain of the system, executing instructions and managing all operations.  
 

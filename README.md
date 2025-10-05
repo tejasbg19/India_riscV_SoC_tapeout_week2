@@ -452,12 +452,16 @@ Where `Dext = {1'b0, D}` (unsigned 11-bit extended)
 
 
 ### Acknowledgments
-- RISC‑V Reference SoC Tapeout Program Organizers:
-    - Kunal Gosh Sir
-    - VLSI System Design (VSD) team
-    - Indian Institute of Technology Gandhinagar (IITGN)
-    - Semiconductor Laboratory (SCL)
-    - Redwood EDA
-    - Steve Hoover Sir
+
+I would like to express my gratitude to the following individuals and organizations for their guidance and support in this RISC-V SoC learning journey:
+
+- **Kunal Ghosh** - VLSI System Design (VSD)
+- **Shivani Shah** - RISC-V Core Development
+- **Steve Hoover** - Redwood EDA (Makerchip & TL-Verilog)
+- **Indian Institute of Technology Gandhinagar (IITGN)**
+- **Semiconductor Laboratory (SCL)**
+- **Redwood EDA** - for open-source EDA tools
+- **VLSI System Design (VSD) team**
+- [Hemanth Kumar D M](https://github.com/hemanthkumardm/SFAL-VSD-SoC-Journey)
   <!--     - Synopsys Inc. -->
 

@@ -331,6 +331,8 @@ This core  represents a dedicated computing system where software is permanently
 
 <br>
 
+---
+
 ### The PLL: avsdpll.v
 
 **Module Purpose**: Behavioral Phase-Locked Loop that generates system clock from reference input.
@@ -367,7 +369,7 @@ This core  represents a dedicated computing system where software is permanently
 <br>
 
 
-
+---
 
 
 ### The DAC: avsddac.v
@@ -377,7 +379,7 @@ This core  represents a dedicated computing system where software is permanently
 **Key Features**:
 - **10-bit Resolution**: Converts 0-1023 digital values to analog voltage
 - **Behavioral Modeling**: Uses Verilog `real` data type for analog simulation
-- **Voltage Range**: Maps to VREFL-VREFH (0V-1V in testbench)
+- **Voltage Range**: Maps to VREFL-VREFH (0V-3.3V in testbench)
 
 **Critical Signals**:
 - `D[9:0]` - 10-bit digital input from RISC-V core
@@ -404,7 +406,7 @@ Where `Dext = {1'b0, D}` (unsigned 11-bit extended)
 - The DAC uses Verilog's `$itor()` function for integer-to-real conversion and Converts 10-bit digital input (0-1023) to floating-point values (analog voltages)
 - It can be observed that the `Real` value of `OUT` varying as the `integer` value of `D[9:0]` varies.
 - Throughout the simulation the Enable signal `EN` is kept `high`/`1`.
-- Also here the reference low voltage `VREFL`= `0` V & reference high voltage `VREFH`= `1` V
+- Also here the reference low voltage `VREFL`= `0` V & reference high voltage `VREFH`= `3.3` V
 
 <div align="center">
   <img src="./Images/13_dac_gtk.png" alt="13_dac_gtk.png" width="1000" />
@@ -412,7 +414,7 @@ Where `Dext = {1'b0, D}` (unsigned 11-bit extended)
 </div>
 <br>
 
-
+---
 
 ### The SoC Integration: vsdbabysoc.v
 

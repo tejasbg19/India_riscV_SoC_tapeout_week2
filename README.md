@@ -447,6 +447,15 @@ Where `Dext = {1'b0, D}` (unsigned 11-bit extended)
 
 <br><br>
 
+  <div align="center">
+  <img src="./Images/DAC_PRE.png" alt="DAC_PRE.png" width="1000" />
+  <p><b>Analog Output From DAC</b></p>
+</div>
+<br>
+
+
+
+
 
 ### Acknowledgments
 
